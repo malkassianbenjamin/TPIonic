@@ -20,7 +20,7 @@ export class HomePage {
     let confirm = this
       .alertCtrl
       .create({
-        title: 'Sure you want to delete this photo? There is NO undo!',
+        title: 'Etes-vous sûr de vouloir supprimer la photo?',
         message: '',
         buttons: [
           {
@@ -79,19 +79,4 @@ export class HomePage {
         console.log(err);
       });
   }
-
-  alertPhoto(){
-    let photoOk = this
-      .alertCtrl
-      .create({
-        title: 'La photo a été enregistrée',
-        message: '',
-        buttons: [
-          {
-            text: 'Ok',
-          }
-        ]
-      });
-  }
-
 }
