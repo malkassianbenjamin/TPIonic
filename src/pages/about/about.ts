@@ -1,13 +1,14 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import {Camera, CameraOptions} from '@ionic-native/camera';
 
 @Component({
   selector: 'page-about',
   templateUrl: 'about.html'
 })
 export class AboutPage {
-
-  constructor(public navCtrl: NavController) {
+  public base64Image : string;
+  constructor(public navCtrl: NavController, private camera : Camera) {
 
   }
 
@@ -29,19 +30,6 @@ export class AboutPage {
         this
           .photos
           .reverse();
-          let photoOk = this
-            .alertCtrl
-            .create({
-              title: 'La photo a été enregistrée',
-              message: '',
-              buttons: [
-                {
-                  text: 'Ok',
-                }
-              ]
-            });
-          photoOk.present();
-
           //confirm.present();
       }, (err) => {
         console.log(err);
