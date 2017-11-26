@@ -66,17 +66,20 @@ export class HomePage {
       }, (err) => {
         console.log(err);
       });
-      let photoOk = this
-        .alertCtrl
-        .create({
-          title: 'La photo a été enregistrée',
-          message: '',
-          buttons: [
-            {
-              text: 'Ok',
-            }
-          ]
-        });
+  }
+
+  alertPhoto(){
+    let photoOk = this
+      .alertCtrl
+      .create({
+        title: 'La photo a été enregistrée',
+        message: '',
+        buttons: [
+          {
+            text: 'Ok',
+          }
+        ]
+      });
   }
 
 }
