@@ -61,35 +61,23 @@ export class HomePage {
         this
           .photos
           .reverse();
+          let photoOk = this
+            .alertCtrl
+            .create({
+              title: 'La photo a été enregistrée',
+              message: '',
+              buttons: [
+                {
+                  text: 'Ok',
+                }
+              ]
+            });
+          photoOk.present();
 
           //confirm.present();
       }, (err) => {
         console.log(err);
       });
-      let confirm = this
-        .alertCtrl
-        .create({
-          title: 'Sure you want to delete this photo? There is NO undo!',
-          message: '',
-          buttons: [
-            {
-              text: 'No',
-              handler: () => {
-                console.log('Disagree clicked');
-              }
-            }, {
-              text: 'Yes',
-              handler: () => {
-                console.log('Agree clicked');
-                this
-                  .photos
-                  .splice(index, 1);
-                //return true;
-              }
-            }
-          ]
-        });
-      confirm.present();
   }
 
   alertPhoto(){
