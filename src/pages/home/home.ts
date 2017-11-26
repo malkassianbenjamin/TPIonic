@@ -14,22 +14,6 @@ export class HomePage {
 
   }
 
-  takePicture(){
-    const options : CameraOptions = {
-      quality: 50, // picture quality
-      destinationType: this.camera.DestinationType.DATA_URL,
-      encodingType: this.camera.EncodingType.JPEG,
-      mediaType: this.camera.MediaType.PICTURE
-    }
-    this.camera.getPicture(options) .then((imageData) => {
-      this.base64Image = "file://" + imageData;
-      this.photos.push(this.base64Image);
-      this.photos.reverse();
-    }, (err) => {
-      console.log(err);
-    });
-  }
-
   deletePhoto(index) {
     let confirm = this.alertCtrl.create({
         title: 'Sure you want to delete this photo? There is NO undo!',
@@ -51,4 +35,21 @@ export class HomePage {
       });
     confirm.present();
   }
+
+  takePicture(){
+    const options : CameraOptions = {
+      quality: 50, // picture quality
+      destinationType: this.camera.DestinationType.FILE_URI,
+      encodingType: this.camera.EncodingType.JPEG,
+      mediaType: this.camera.MediaType.PICTURE
+    }
+    this.camera.getPicture(options) .then((imageData) => {
+      this.base64Image = "file://" + imageData;
+      this.photos.push(this.base64Image);
+      this.photos.reverse();
+    }, (err) => {
+      console.log(err);
+    });
+  }
+
 }
