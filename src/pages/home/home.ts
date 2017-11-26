@@ -44,7 +44,7 @@ export class HomePage {
       mediaType: this.camera.MediaType.PICTURE
     }
     this.camera.getPicture(options) .then((imageData) => {
-      this.base64Image = "file://" + imageData;
+      this.base64Image = imageData;
       this.photos.push(this.base64Image);
       this.photos.reverse();
     }, (err) => {
