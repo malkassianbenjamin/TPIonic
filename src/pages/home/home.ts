@@ -15,20 +15,19 @@ export class HomePage {
   }
 
   takePicture(){
-    const options: CameraOptions = {
-      quality: 100,
+    const options : CameraOptions = {
+      quality: 50, // picture quality
       destinationType: this.camera.DestinationType.DATA_URL,
       encodingType: this.camera.EncodingType.JPEG,
       mediaType: this.camera.MediaType.PICTURE
     }
-
-    this.camera.getPicture(options).then((imageData) => {
-     // imageData is either a base64 encoded string or a file URI
-     // If it's base64:
-     let base64Image = 'data:image/jpeg;base64,' + imageData;
-    }, (err) => {
-     // Handle error
-    });
+    this.camera.getPicture(options) .then((imageData) => {
+        this.base64Image = "data:image/jpeg;base64," + imageData;
+        this.photos.push(this.base64Image);
+        this.photos.reverse();
+      }, (err) => {
+        console.log(err);
+      });
   }
 
   deletePhoto(index) {
