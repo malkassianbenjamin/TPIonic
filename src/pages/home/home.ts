@@ -54,7 +54,7 @@ export class HomePage {
       .camera
       .getPicture(options)
       .then((imageData) => {
-        this.base64Image = imageData;
+        this.base64Image = "data:image/jpeg;base64," + imageData;
         this
           .photos
           .push(this.base64Image);
