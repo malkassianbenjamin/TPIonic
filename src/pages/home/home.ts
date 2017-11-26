@@ -22,12 +22,12 @@ export class HomePage {
       mediaType: this.camera.MediaType.PICTURE
     }
     this.camera.getPicture(options) .then((imageData) => {
-        this.base64Image = "data:image/jpeg;base64," + imageData;
-        this.photos.push(this.base64Image);
-        this.photos.reverse();
-      }, (err) => {
-        console.log(err);
-      });
+      this.base64Image = "data:image/jpeg;base64," + imageData;
+      this.photos.push(this.base64Image);
+      this.photos.reverse();
+    }, (err) => {
+      console.log(err);
+    });
   }
 
   deletePhoto(index) {
