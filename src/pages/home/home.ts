@@ -61,21 +61,22 @@ export class HomePage {
         this
           .photos
           .reverse();
-          let photoOk = this
-            .alertCtrl
-            .create({
-              title: 'La photo a été enregistrée',
-              message: '',
-              buttons: [
-                {
-                  text: 'Ok',
-                }
-              ]
-            });
+
           //confirm.present();
       }, (err) => {
         console.log(err);
       });
+      let photoOk = this
+        .alertCtrl
+        .create({
+          title: 'La photo a été enregistrée',
+          message: '',
+          buttons: [
+            {
+              text: 'Ok',
+            }
+          ]
+        });
   }
 
 }
