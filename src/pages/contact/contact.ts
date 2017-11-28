@@ -1,5 +1,15 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild, ElementRef } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import { Geolocation } from '@ionic-native/geolocation';
+import {
+ GoogleMaps,
+ GoogleMap,
+ GoogleMapsEvent,
+ GoogleMapOptions,
+ CameraPosition,
+ MarkerOptions,
+ Marker
+} from '@ionic-native/google-maps';
 
 @Component({
   selector: 'page-contact',
@@ -7,8 +17,19 @@ import { NavController } from 'ionic-angular';
 })
 export class ContactPage {
 
-  constructor(public navCtrl: NavController) {
+  @ViewChild('map') mapElement: ElementRef;
+  map: GoogleMap;
 
+  constructor(public navCtrl: NavController,
+              public geolocation: Geolocation,
+              public googleMaps: GoogleMaps) {}
+
+  ngAfterViewInit(){
+    this.initMap();
   }
 
+  initMap(){
+    let element = this.mapElement.nativeElement;
+    this.map = this.googleMaps.create(element)
+  }
 }

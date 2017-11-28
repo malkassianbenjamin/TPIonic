@@ -84,4 +84,11 @@
     <plugin name="cordova-plugin-splashscreen" spec="^4.0.3" />
     <plugin name="cordova-plugin-ionic-webview" spec="^1.1.16" />
     <plugin name="cordova-plugin-media-capture" spec="^2.0.0" />
+    <plugin name="cordova-plugin-geolocation" spec="^3.0.0">
+        <variable name="GEOLOCATION_USAGE_DESCRIPTION" value="To locate you" />
+    </plugin>
+    <plugin name="cordova-plugin-googlemaps" spec="^2.1.1">
+        <variable name="API_KEY_FOR_ANDROID" value="AIzaSyBd7yDbyX7fMTEely32TTXSu5z0ERX_x3c" />
+        <variable name="API_KEY_FOR_IOS" value="AIzaSyBd7yDbyX7fMTEely32TTXSu5z0ERX_x3c" />
+    </plugin>
 </widget>

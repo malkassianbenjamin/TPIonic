@@ -13,7 +13,7 @@ export class AboutPage {
   }
 
   takeVideo() {
-    let options: CaptureImageOptions = { limit: 3 };
+    let options: CaptureImageOptions = { limit: 50 };
     this.mediaCapture.captureImage(options)
     .then(
       (data: MediaFile[]) => console.log(data),
